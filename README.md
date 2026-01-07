@@ -1,0 +1,1 @@
+The Currency Converter is a simple and efficient application that converts one currency into another using current exchange rates. It provides quick and accurate currency conversion and helps users understand real-world financial calculations.
