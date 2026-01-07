@@ -1,0 +1,49 @@
+import java.util.Scanner;
+
+public class CurrencyConverter {
+
+    // Method to get exchange rate
+    public static double getExchangeRate(String base, String target) {
+
+        if (base.equalsIgnoreCase("USD") && target.equalsIgnoreCase("INR"))
+            return 83.0;
+        else if (base.equalsIgnoreCase("INR") && target.equalsIgnoreCase("USD"))
+            return 0.012;
+        else if (base.equalsIgnoreCase("USD") && target.equalsIgnoreCase("EUR"))
+            return 0.92;
+        else if (base.equalsIgnoreCase("EUR") && target.equalsIgnoreCase("USD"))
+            return 1.09;
+        else
+            return -1; // Invalid conversion
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        // Currency selection
+        System.out.print("Enter base currency (USD, INR, EUR): ");
+        String baseCurrency = sc.next().toUpperCase();
+
+        System.out.print("Enter target currency (USD, INR, EUR): ");
+        String targetCurrency = sc.next().toUpperCase();
+
+        // Amount input
+        System.out.print("Enter amount to convert: ");
+        double amount = sc.nextDouble();
+
+        // Get exchange rate
+        double rate = getExchangeRate(baseCurrency, targetCurrency);
+
+        if (rate == -1) {
+            System.out.println("Invalid currency selection!");
+        } else {
+            double convertedAmount = amount * rate;
+            System.out.println("\nConverted Amount: " +
+                    convertedAmount + " " + targetCurrency);
+        }
+
+        sc.close();
+    }
+}
+
+
